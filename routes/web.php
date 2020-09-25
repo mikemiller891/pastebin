@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PasteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::name('pastebin.')->group(function () {
+    Route::get('/', [PasteController::class, 'edit']);
+    Route::post('/', [PasteController::class, 'edit_action']);
+    Route::get('/{paste:key}', [PasteController::class, 'show']);
+    Route::post('/{paste:key}', [PasteController::class, 'show_action']);
 });
