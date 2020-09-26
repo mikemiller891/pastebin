@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Faker;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Faker;
 
 /**
  * @method static withKey($key)
  * @method static withContent(string $content)
+ *
  * @property string key
  * @property string content
  */
@@ -20,6 +21,7 @@ class Paste extends Model
     {
         $faker = Faker\Factory::create();
         $key = $faker->regexify(env('PASTE_KEY_PATTERN'));
+
         return $key;
     }
 

@@ -17,7 +17,7 @@ class PastebinTest extends TestCase
      */
     public function user_can_see_the_paste_editor(): void
     {
-        $response = $this->get("/");
+        $response = $this->get('/');
 
         $response
             ->assertOk()
@@ -36,9 +36,9 @@ class PastebinTest extends TestCase
         $content = $this->faker->paragraph;
         $post_data = [
             'content' => $content,
-            'cmd' => 'save'
+            'cmd'     => 'save',
         ];
-        $response = $this->post("/", $post_data);
+        $response = $this->post('/', $post_data);
 
         $paste = Paste::withContent($content)->firstOrFail();
         $key = $paste->key;
@@ -55,11 +55,11 @@ class PastebinTest extends TestCase
         $content = $this->faker->paragraph;
         $post_data = [
             'content' => $content,
-            'cmd' => 'cancel'
+            'cmd'     => 'cancel',
         ];
-        $response = $this->post("/", $post_data);
+        $response = $this->post('/', $post_data);
 
-        $url = "/";
+        $url = '/';
 
         $response->assertRedirect($url);
     }
@@ -71,11 +71,11 @@ class PastebinTest extends TestCase
     {
         $post_data = [
             'content' => ' ',
-            'cmd' => 'save'
+            'cmd'     => 'save',
         ];
-        $response = $this->post("/", $post_data);
+        $response = $this->post('/', $post_data);
 
-        $url = "/";
+        $url = '/';
 
         $response->assertRedirect($url);
     }
@@ -116,17 +116,16 @@ class PastebinTest extends TestCase
         $paste = Paste::factory()->create();
         $key = $paste->key;
         $post_data = [
-            'cmd' => 'fork'
+            'cmd' => 'fork',
         ];
         $url = "/{$key}";
         $response = $this->post($url, $post_data);
 
-        $url = "/";
+        $url = '/';
         $response
             ->assertRedirect($url)
             ->assertSessionHas('key', $key);
     }
-
 
     /**
      * @test
@@ -136,12 +135,12 @@ class PastebinTest extends TestCase
         $paste = Paste::factory()->create();
         $key = $paste->key;
         $post_data = [
-            'cmd' => 'new'
+            'cmd' => 'new',
         ];
         $url = "/{$key}";
         $response = $this->post($url, $post_data);
 
-        $url = "/";
+        $url = '/';
         $response
             ->assertRedirect($url)
             ->assertSessionMissing('key');
@@ -154,9 +153,9 @@ class PastebinTest extends TestCase
     {
         $paste = Paste::factory()->create();
         $key = $paste->key;
-        $url = "/";
+        $url = '/';
         $session_data = [
-            'key' => $key
+            'key' => $key,
         ];
         $response = $this->withSession($session_data)->get($url);
 
@@ -172,9 +171,9 @@ class PastebinTest extends TestCase
     public function user_cannot_see_a_non_forked_paste_in_the_paste_editor(): void
     {
         $key = Paste::generateUniqueKey();
-        $url = "/";
+        $url = '/';
         $session_data = [
-            'key' => $key
+            'key' => $key,
         ];
         $response = $this->withSession($session_data)->get($url);
 
