@@ -22,7 +22,7 @@ class PasteFactory extends Factory
     public function definition(): array
     {
         return [
-            'content' => $this->faker->paragraph
+            'content' => $this->faker->paragraph,
         ];
     }
 }

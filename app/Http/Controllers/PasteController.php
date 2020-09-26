@@ -11,6 +11,7 @@ class PasteController extends Controller
 {
     /**
      * @param Request $request
+     *
      * @return View
      */
     public function edit(Request $request): View
@@ -21,15 +22,17 @@ class PasteController extends Controller
             $paste = Paste::withKey($key)->firstOrFail();
         } else {
             $paste_data = [
-                'content' => ''
+                'content' => '',
             ];
             $paste = Paste::factory()->make($paste_data);
         }
+
         return view('paste.edit', $paste);
     }
 
     /**
      * @param Request $request
+     *
      * @return RedirectResponse
      */
     public function edit_action(Request $request): RedirectResponse
@@ -37,25 +40,27 @@ class PasteController extends Controller
         $cmd = $request->input('cmd');
 
         if ($cmd === 'cancel') {
-            return redirect("/");
+            return redirect('/');
         }
 
         // $cmd === 'save'
         $content = $request->input('content');
         if (rtrim($content) === '') {
-            return redirect("/");
+            return redirect('/');
         }
 
         $paste_data = [
-            'content' => $content
+            'content' => $content,
         ];
         $paste = Paste::factory()->create($paste_data);
         $key = $paste->key;
+
         return redirect("/{$key}");
     }
 
     /**
      * @param Paste $paste
+     *
      * @return View
      */
     public function show(Paste $paste): View
@@ -66,19 +71,21 @@ class PasteController extends Controller
     /**
      * @param Request $request
      * @param $key
+     *
      * @return RedirectResponse
      */
     public function show_action(Request $request, $key): RedirectResponse
     {
         $cmd = $request->input('cmd');
         if ($cmd === 'new') {
-            return redirect("/");
+            return redirect('/');
         }
 
         // $cmd === 'fork'
         $session_data = [
-            'key' => $key
+            'key' => $key,
         ];
-        return redirect("/")->with($session_data);
+
+        return redirect('/')->with($session_data);
     }
 }
