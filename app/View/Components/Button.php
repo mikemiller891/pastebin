@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class Button extends Component
 {
     public $color;
+
     /**
      * Create a new component instance.
      *
