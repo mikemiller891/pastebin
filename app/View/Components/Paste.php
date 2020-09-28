@@ -15,7 +15,7 @@ class Paste extends Component
      *
      * @return void
      */
-    public function __construct($readonly=FALSE)
+    public function __construct($readonly = false)
     {
         $this->readonly = $readonly;
     }
@@ -32,6 +32,7 @@ class Paste extends Component
         } else {
             $this->tag = 'textarea';
         }
+
         return <<<'blade'
         <{{ $tag }}
           class="h-full w-full
