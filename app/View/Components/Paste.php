@@ -33,9 +33,15 @@ class Paste extends Component
             $this->tag = 'textarea';
         }
         return <<<'blade'
-        <{{ $tag }} class="h-full w-full bg-white dark:bg-black text-black
-          dark:text-white text-l font-mono resize-none p-4 whitespace-pre-wrap
-          overflow-y-scroll" {{ $attributes }}>{{ $slot }}</{{ $tag }}>
+        <{{ $tag }}
+          class="h-full w-full
+            bg-white dark:bg-black text-black dark:text-white
+            text-l font-mono
+            resize-none
+            p-4
+            whitespace-pre-wrap
+            overflow-y-scroll"
+          {{ $attributes }}>{{ $slot }}</{{ $tag }}>
 blade;
     }
 }
