@@ -2,16 +2,15 @@
 
 @section('content')
 
-    <form class="h-full w-full overflow-hidden" action="/{{ $key }}"
-      method="post">@csrf
-        <div class="h-full w-full bg-white dark:bg-black text-black
-          dark:text-white text-l font-mono resize-none p-4 whitespace-pre-wrap
-          overflow-y-scroll">{{ $content }}</div>
+    <form class="h-full w-full overflow-hidden" action="/{{ $key }}" method="post">@csrf
+
+        <x-paste readonly>{{ $content }}</x-paste>
 
         <div class="absolute bottom-0 right-0 pr-8 pb-4 bg-transparent">
             <x-button color="blue" value="fork">Fork</x-button>
             <x-button color="orange" value="new">New</x-button>
         </div>
+
     </form>
 
 @endsection
