@@ -41,7 +41,7 @@ blade;
 
 /*
 These are the Tailwind CSS classes that can be dynamically generated.
-Loave this  here so that PurgeCSS won't remove them.
+Leave this here so that PurgeCSS won't remove them.
 bg-red-300
 bg-red-500
 bg-red-700
