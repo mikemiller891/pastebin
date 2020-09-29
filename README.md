@@ -4,7 +4,7 @@
 
 ## About Pastebin
 
-It's a Pastebin. Carefully hand-crafted using Laravel and Tailwind CSS and is 100% Javascript free. Uncontrolled low-key pandemics produce eccentricities. This is one of them. I am one of them. My goal is to produce a minimalist and still, somehow, be the most over-engineered Pastebin ever.
+It's a Pastebin. Carefully hand-crafted using Laravel and Tailwind CSS and is 100% Javascript free. Uncontrolled low-key pandemics produce eccentricities. This is one of them. I am one of them. My goal is to develop an attractive, minimalist yet, somehow, the most over-engineered Pastebin ever.
 
 ## Deployment
 
@@ -29,3 +29,7 @@ _\</WIP\>_
 ## License
 
 Pastebin is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Demo
+
+[pastebin.gnomad.dev](https://pastebin.gnomad.dev)
