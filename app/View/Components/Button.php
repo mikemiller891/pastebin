@@ -19,21 +19,6 @@ class Button extends Component
     }
 
     /**
-     * These are the Tailwind CSS classes that can be dynamically generated.
-     * Loave this  here so that PurgeCSS won't remove them.
-     * bg-red-300
-     * bg-red-500
-     * bg-red-700
-     * bg-green-300
-     * bg-green-500
-     * bg-green-700
-     * bg-blue-300
-     * bg-blue-500
-     * bg-blue-700
-     * bg-orange-300
-     * bg-orange-500
-     * bg-orange-700
-     *
      * Get the view / contents that represent the component.
      *
      * @return \Illuminate\View\View|string
@@ -53,3 +38,20 @@ class Button extends Component
 blade;
     }
 }
+
+/*
+These are the Tailwind CSS classes that can be dynamically generated.
+Loave this  here so that PurgeCSS won't remove them.
+bg-red-300
+bg-red-500
+bg-red-700
+bg-green-300
+bg-green-500
+bg-green-700
+bg-blue-300
+bg-blue-500
+bg-blue-700
+bg-orange-300
+bg-orange-500
+bg-orange-700
+*/
