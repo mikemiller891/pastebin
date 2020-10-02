@@ -13,7 +13,7 @@ class Paste extends Component
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param bool $readonly
      */
     public function __construct($readonly = false)
     {
@@ -23,7 +23,7 @@ class Paste extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
+     * @return string
      */
     public function render()
     {

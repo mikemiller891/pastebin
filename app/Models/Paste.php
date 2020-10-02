@@ -20,9 +20,7 @@ class Paste extends Model
     public static function generateUniqueKey()
     {
         $faker = Faker\Factory::create();
-        $key = $faker->regexify(env('PASTE_KEY_PATTERN'));
-
-        return $key;
+        return $faker->regexify(env('PASTE_KEY_PATTERN'));
     }
 
     public function scopeWithKey($query, $key)
