@@ -1,5 +1,7 @@
 # Pastebin
 
+![Laravel](https://github.com/mikemiller891/pastebin/workflows/Laravel/badge.svg)
+
 ## About Pastebin
 
 It's a pastebin.
