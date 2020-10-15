@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "484e9602bb2f8dfd788da988372c2320",
+    "content-hash": "5f50ace60a22cc48f44d022bf4f90f02",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4631,6 +4631,85 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2020-07-13T06:12:54+00:00"
+        },
+        {
+            "name": "ukfast/laravel-health-check",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ukfast/laravel-health-check.git",
+                "reference": "ba7e9588d9abdf6d9a2f385a30d7221a5b6f0f3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ukfast/laravel-health-check/zipball/ba7e9588d9abdf6d9a2f385a30d7221a5b6f0f3b",
+                "reference": "ba7e9588d9abdf6d9a2f385a30d7221a5b6f0f3b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/http": "^5.4|^6.0|^7.0|^8.0",
+                "illuminate/support": "^5.4|^6.0|^7.0|^8.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": ">=5.6.3",
+                "illuminate/database": "^5.4|^6.0|^7.0|^8.0",
+                "illuminate/log": "^5.4|^6.0|^7.0|^8.0",
+                "illuminate/redis": "^5.4|^6.0|^7.0|^8.0",
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^3.0|^4.0|^5.0|^6.0",
+                "phpunit/phpunit": ">=5.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows the http health check to function.",
+                "illuminate/database": "Allows the database health check to function.",
+                "illuminate/log": "Allows the log health check to function.",
+                "illuminate/redis": "Allows the redis health check to function.",
+                "sensiolabs/security-checker": "Allows the package security health check to function."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "UKFast\\HealthCheck\\HealthCheckServiceProvider"
+                    ],
+                    "aliases": {
+                        "HealthCheck": "UKFast\\HealthCheck\\Facade\\HealthCheck"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "UKFast\\HealthCheck\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "George Kelly",
+                    "email": "george.kelly@ukfast.co.uk",
+                    "role": "Author & Maintainer"
+                },
+                {
+                    "name": "Tyler Woonton",
+                    "email": "tyler.woonton@ukfast.co.uk",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A package for checking the health of your Laravel/Lumen applications.",
+            "keywords": [
+                "laravel",
+                "laravel-health-check",
+                "lumen",
+                "lumen-health-check",
+                "ukfast",
+                "ukfast-health-check"
+            ],
+            "time": "2020-10-13T09:43:19+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
