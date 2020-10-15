@@ -44,15 +44,15 @@ class Paste extends Model
      * Generate a random alpha string for use as a unique key.
      * Key collisions are not detected at this time.
      *
+     * @return string
      * @todo Detect key collisions
      *
-     * @return string
      */
-    public static function generateUniqueKey()
+    public static function generateUniqueKey(): string
     {
         $faker = Faker\Factory::create();
         $key_length = env('PASTE_KEY_LENGTH');
-        $regex = '[a-z]{'.$key_length.'}';
+        $regex = '[a-z]{' . $key_length . '}';
         return $faker->regexify($regex);
     }
 }

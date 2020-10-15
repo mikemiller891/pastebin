@@ -13,7 +13,7 @@ class PasteTest extends TestCase
     public function randomly_generated_keys_look_right()
     {
         $key_length = env('PASTE_KEY_LENGTH');
-        $key_pattern = '/^[a-z]{'.$key_length.'}$/';
+        $key_pattern = '/^[a-z]{' . $key_length . '}$/';
         $key = Paste::generateUniqueKey();
         $this->assertMatchesRegularExpression($key_pattern, $key);
     }

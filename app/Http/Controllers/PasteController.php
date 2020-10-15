@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paste;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class PasteController extends Controller
 {
     /**
      * Display a form for editing a paste.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param Request $request
+     * @return Application|Factory|View
      */
     public function edit(Request $request)
     {
@@ -27,7 +33,7 @@ class PasteController extends Controller
      * Precess submissions from the paste edit form.
      *
      * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return Application|RedirectResponse|Redirector|void
      */
     public function editAction(Request $request)
     {
@@ -45,7 +51,7 @@ class PasteController extends Controller
      * Save a submitted  paste to the database.
      *
      * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return Application|RedirectResponse|Redirector
      */
     public function save(Request $request)
     {
@@ -57,14 +63,14 @@ class PasteController extends Controller
             'content' => $content,
         ];
         $paste = Paste::factory()->create($paste);
-        return redirect('/'.$paste->key);
+        return redirect('/' . $paste->key);
     }
 
     /**
      * Display a paste.
      *
      * @param Paste $paste
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function show(Paste $paste)
     {
@@ -76,7 +82,7 @@ class PasteController extends Controller
      *
      * @param Request $request
      * @param Paste $paste
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return Application|RedirectResponse|Redirector|void
      */
     public function showAction(Request $request, Paste $paste)
     {

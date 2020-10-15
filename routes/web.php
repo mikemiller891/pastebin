@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [ PasteController::class, 'edit']);
-Route::post('/', [ PasteController::class, 'editAction']);
-Route::get('/{paste:key}', [ PasteController::class, 'show']);
-Route::post('/{paste:key}', [ PasteController::class, 'showAction']);
+Route::get('/', [PasteController::class, 'edit']);
+Route::post('/', [PasteController::class, 'editAction']);
+Route::get('/{paste:key}', [PasteController::class, 'show']);
+Route::post('/{paste:key}', [PasteController::class, 'showAction']);

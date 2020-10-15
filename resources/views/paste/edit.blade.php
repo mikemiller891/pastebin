@@ -1,13 +1,13 @@
 @extends('paste.layout')
 
 @section('content')
-    <form action="/" method="post" class="relative h-full w-full">@csrf
-        <div class="h-full w-full overflow-hidden">
-            <textarea name="content" autofocus class="h-full w-full font-mono resize-none p-4 whitespace-pre-wrap overflow-y-scroll bg-black text-white">{{ $content ?? '' }}</textarea>
+    <form action="/" method="post" class="relative w-full h-full">@csrf
+        <div class="w-full h-full overflow-hidden">
+            <textarea name="content" autofocus class="w-full h-full p-4 overflow-y-scroll font-mono text-white whitespace-pre-wrap bg-black resize-none">{{ $content ?? '' }}</textarea>
         </div>
         <div class="absolute bottom-0 right-0 pb-4 pr-8">
-            <button name="action" value="save" class="bg-green-500 text-black hover:text-white focus:text-white py-0 px-4 rounded-full opacity-50 hover:opacity-100 focus:opacity-100 font-black focus:outline-none">Save</button>
-            <button name="action" value="cancel" class="bg-red-500 text-black hover:text-white focus:text-white py-0 px-4 rounded-full opacity-50 hover:opacity-100 focus:opacity-100 font-black focus:outline-none">Cancel</button>
+            <button name="action" value="save" class="px-4 py-0 font-black text-black bg-green-500 rounded-full opacity-50 hover:text-white focus:text-white hover:opacity-100 focus:opacity-100 focus:outline-none">Save</button>
+            <button name="action" value="cancel" class="px-4 py-0 font-black text-black bg-red-500 rounded-full opacity-50 hover:text-white focus:text-white hover:opacity-100 focus:opacity-100 focus:outline-none">Cancel</button>
         </div>
     </form>
 @endsection

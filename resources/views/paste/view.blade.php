@@ -1,13 +1,13 @@
 @extends('paste.layout')
 
 @section('content')
-    <form action="/{{ $key }}" method="post" class="relative h-full w-full">@csrf
-        <div class="h-full w-full overflow-hidden">
-            <div class="h-full w-full font-mono resize-none p-4 whitespace-pre-wrap overflow-y-scroll bg-black text-white">{{ $content }}</div>
+    <form action="/{{ $key }}" method="post" class="relative w-full h-full">@csrf
+        <div class="w-full h-full overflow-hidden">
+            <div class="w-full h-full p-4 overflow-y-scroll font-mono text-white whitespace-pre-wrap bg-black resize-none">{{ $content }}</div>
         </div>
         <div class="absolute bottom-0 right-0 pb-4 pr-8">
-            <button name="action" value="fork" class="bg-blue-500 text-black hover:text-white focus:text-white py-0 px-4 rounded-full opacity-50 hover:opacity-100 focus:opacity-100 font-black focus:outline-none">Fork</button>
-            <button name="action" value="new" class="bg-orange-500 text-black hover:text-white focus:text-white py-0 px-4 rounded-full opacity-50 hover:opacity-100 focus:opacity-100 font-black focus:outline-none">New</button>
+            <button name="action" value="fork" class="px-4 py-0 font-black text-black bg-blue-500 rounded-full opacity-50 hover:text-white focus:text-white hover:opacity-100 focus:opacity-100 focus:outline-none">Fork</button>
+            <button name="action" value="new" class="px-4 py-0 font-black text-black bg-orange-500 rounded-full opacity-50 hover:text-white focus:text-white hover:opacity-100 focus:opacity-100 focus:outline-none">New</button>
         </div>
     </form>
 @endsection

@@ -24,8 +24,7 @@ class PastebinTest extends TestCase
             ->assertDontSee('<script', false)
             ->assertSee('<title>Pastebin</title>', false)
             ->assertSee('<textarea', false)
-            ->assertSee('<button', false)
-        ;
+            ->assertSee('<button', false);
     }
 
     /**
@@ -41,7 +40,7 @@ class PastebinTest extends TestCase
         $response = $this->post('/', $payload);
         $paste = Paste::withContent($content)->firstOrFail();
 
-        $response->assertRedirect('/'.$paste->key);
+        $response->assertRedirect('/' . $paste->key);
     }
 
     /**
@@ -83,12 +82,11 @@ class PastebinTest extends TestCase
     public function user_can_see_a_saved_paste()
     {
         $paste = Paste::factory()->create();
-        $response = $this->get('/'.$paste->key);
+        $response = $this->get('/' . $paste->key);
 
         $response
             ->assertOk()
-            ->assertSee($paste->content)
-        ;
+            ->assertSee($paste->content);
     }
 
     /**
@@ -100,19 +98,17 @@ class PastebinTest extends TestCase
             'action' => 'fork'
         ];
         $paste = Paste::factory()->create();
-        $response = $this->post('/'.$paste->key, $payload);
+        $response = $this->post('/' . $paste->key, $payload);
 
         $response
             ->assertRedirect('/')
-            ->assertSessionHas('key', $paste->key)
-        ;
+            ->assertSessionHas('key', $paste->key);
 
-        $response = $this->withSession(['key'=>$paste->key])->get('/');
+        $response = $this->withSession(['key' => $paste->key])->get('/');
 
         $response
             ->assertOk()
-            ->assertSee($paste->content)
-        ;
+            ->assertSee($paste->content);
     }
 
     /**
@@ -124,12 +120,11 @@ class PastebinTest extends TestCase
             'action' => 'new'
         ];
         $paste = Paste::factory()->create();
-        $response = $this->post('/'.$paste->key, $payload);
+        $response = $this->post('/' . $paste->key, $payload);
 
         $response
             ->assertRedirect('/')
-            ->assertSessionMissing('key')
-        ;
+            ->assertSessionMissing('key');
     }
 
     /**
@@ -140,18 +135,18 @@ class PastebinTest extends TestCase
         $bad_key = Paste::generateUniqueKey();
         $good_paste = Paste::factory()->create();
 
-        $payload = [ 'action' => '1337' ];
+        $payload = ['action' => '1337'];
         $response = $this->post('/', $payload);
         $response->assertNotFound();
 
-        $response = $this->get('/'.$bad_key);
+        $response = $this->get('/' . $bad_key);
         $response->assertNotFound();
 
-        $response = $this->post('/'.$bad_key);
+        $response = $this->post('/' . $bad_key);
         $response->assertNotFound();
 
-        $payload = [ 'action' => '1337' ];
-        $response = $this->post('/'.$good_paste->key, $payload);
+        $payload = ['action' => '1337'];
+        $response = $this->post('/' . $good_paste->key, $payload);
         $response->assertNotFound();
 
     }

@@ -9,10 +9,10 @@ class PasteObserver
     /**
      * Randomly generate a unique key for new pastes.
      *
-     * @param  \App\Models\Paste  $paste
+     * @param Paste $paste
      * @return void
      */
-    public function creating(Paste $paste)
+    public function creating(Paste $paste): void
     {
         $paste->key = Paste::generateUniqueKey();
     }
