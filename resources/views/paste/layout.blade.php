@@ -8,7 +8,7 @@
     <title>Pastebin</title>
     <link href="{{ asset('css/app.css')  }}" rel="stylesheet">
 </head>
-<body class="h-screen w-screen">
+<body class="h-screen w-screen bg-black text-white">
     @yield('content')
 </body>
 </html>
