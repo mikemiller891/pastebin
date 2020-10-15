@@ -46,6 +46,11 @@
 @servers ( ['web'   => "{$user}@{$server}", 'localhost' => "127.0.0.1" ] )
 
 
+@story('check-user')
+    check-user-task
+@endstory
+
+
 @story('test-locally')
     clone-locally
     build-locally
@@ -111,6 +116,14 @@
     echo "Build complete"
 @endtask
 
+@task ('check-user-task', ['on' => 'web'])
+    touch {{ $tmp }}/do_not_keep
+    rm {{ $tmp }}/do_not_keep
+    touch {{ $path }}/do_not_keep
+    rm {{ $path }}/do_not_keep
+    sudo echo "Envoy user OK"
+@endtask
+
 @task ('clone-remotely', ['on' => 'web'])
     echo "Cloning repository into {{ $tmp_release }}"
     mkdir -p {{ $tmp }} || exit 1
@@ -160,6 +173,12 @@
         echo "Storage directory set up"
 
         rm -rf {{ $release }}
+
+        mkdir -p {{ $release }}/public
+        wget -O "{{ $release }}/public/index.php" https://raw.githubusercontent.com/mikemiller891/unlanding/main/index.php
+        ln -nfs {{ $release }} {{ $path }}/current
+        echo "Placeholder page installed"
+
     else
         echo "Deployment path already initialized (storage symlink exists)!"
     fi
