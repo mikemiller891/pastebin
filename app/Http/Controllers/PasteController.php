@@ -38,7 +38,7 @@ class PasteController extends Controller
         if ($action === 'cancel') {
             return redirect('/');
         }
-        abort(404);
+        return abort(404);
     }
 
     /**
@@ -87,6 +87,6 @@ class PasteController extends Controller
         if ($action === 'new') {
             return redirect('/');
         }
-        abort(404);
+        return abort(404);
     }
 }
