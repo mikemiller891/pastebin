@@ -106,6 +106,13 @@ class PastebinTest extends TestCase
             ->assertRedirect('/')
             ->assertSessionHas('key', $paste->key)
         ;
+
+        $response = $this->withSession(['key'=>$paste->key])->get('/');
+
+        $response
+            ->assertOk()
+            ->assertSee($paste->content)
+        ;
     }
 
     /**
