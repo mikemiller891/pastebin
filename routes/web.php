@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/', [PasteController::class, 'edit']);
 Route::post('/', [PasteController::class, 'editAction']);
 Route::get('/{paste:key}', [PasteController::class, 'show']);
