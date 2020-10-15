@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -14,6 +14,16 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
+
+            <div class="py-2 mb-6 text-center border-b border-gray-200">
+                <p class="font-black">Sign in to your account</p>
+                <p class="mt-2 text-sm leading-5 text-center text-gray-600 max-w">
+                    Or
+                    <a href="{{ route('register') }}" class="font-medium text-blue-600 transition duration-150 ease-in-out hover:text-blue-500 focus:outline-none focus:underline">
+                        create a new account
+                    </a>
+                </p>
+            </div>
 
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
@@ -43,6 +53,7 @@
                     {{ __('Login') }}
                 </x-jet-button>
             </div>
+
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
