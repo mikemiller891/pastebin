@@ -18,9 +18,9 @@
             <div class="py-2 mb-6 text-center border-b border-gray-200">
                 <p class="font-black">Sign in to your account</p>
                 <p class="mt-2 text-sm leading-5 text-center text-gray-600 max-w">
-                    Or
+                    {{ __('Or') }}
                     <a href="{{ route('register') }}" class="font-medium text-blue-600 transition duration-150 ease-in-out hover:text-blue-500 focus:outline-none focus:underline">
-                        create a new account
+                        {{ __('create a new account') }}
                     </a>
                 </p>
             </div>
