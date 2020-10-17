@@ -12,11 +12,9 @@ npm-debug.log
 yarn-error.log
 
 .idea/
-TODO.md
 reports/
-
+TODO.md
 composer.phar
-
 .phpstorm.meta.php
-
 _ide_helper.php
+public/adminer/
