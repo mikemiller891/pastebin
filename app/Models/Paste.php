@@ -7,10 +7,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @method static withKey(string $key)
- * @method static withContent(string $content)
- * @property string key
- * @property string content
+ * App\Models\Paste
+ *
+ * @property string $key
+ * @property string $content
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Paste newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Paste newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Paste query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Paste whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Paste whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Paste whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Paste whereKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Paste whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Paste withContent($content)
+ * @method static \Illuminate\Database\Eloquent\Builder|Paste withKey($key)
+ * @mixin \Eloquent
  */
 class Paste extends Model
 {

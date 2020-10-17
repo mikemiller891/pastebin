@@ -16,3 +16,7 @@ TODO.md
 reports/
 
 composer.phar
+
+.phpstorm.meta.php
+
+_ide_helper.php
