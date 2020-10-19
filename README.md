@@ -8,7 +8,7 @@ It's a pastebin. Carefully hand-crafted using Laravel and Tailwind CSS.
 
 ### Features
 
-  * No Java-script at all
+  * No user-side Java-script
   * No passwords
   * Pastes are stored in a database
   
@@ -24,19 +24,20 @@ It's a pastebin. Carefully hand-crafted using Laravel and Tailwind CSS.
 #### Checklist
 
   - Clone And Build
-      - [ ] ```$ git clone https://github.com/mikemiller891/pastebin.git pastebin```
-      - [ ] ```$ cd pastebin```
-      - [ ] ```$ composer install```
-      - [ ] ```$ php artisan key:generate```
-      - [ ] ```$ npm install```
-      - [ ] ```$ npm run dev```
+      - [ ] ``$ git clone https://github.com/mikemiller891/pastebin.git pastebin``
+      - [ ] ``$ cd pastebin``
+      - [ ] ``$ composer install``
+      - [ ] ``$ php artisan key:generate``
+      - [ ] ``$ npm install``
+      - [ ] ``$ npm run dev``
   - Create Local Database
-      - [ ] ```$ touch /tmp/database/pastebin.sqlite```
-      - [ ] ```$ php artisan migrate```
+      - [ ] ``$ mkdir -p /tmp/database/sqlite/pastebin``
+      - [ ] ``$ touch /tmp/database/sqlite/pastebin``
+      - [ ] ``$ php artisan migrate``
   - Test
-      - [ ] ```$ vendor/bin/phpunit```
+      - [ ] ``$ vendor/bin/phpunit``
   - Run
-      - [ ] ```$ php artisan serve```
+      - [ ] ``$ php artisan serve``
 
 ### Deployment [WIP]
 
@@ -47,16 +48,16 @@ It's a pastebin. Carefully hand-crafted using Laravel and Tailwind CSS.
 
 #### Checklist
 
-  - [ ] Edit the ```.env``` file. Change the ```DEPLOY_*``` variables to suit your needs. 
-  - [ ] Edit the ```.env.production``` file to suit your needs.
-  - [ ] Create the ```envoy``` user on web server. 
-  This user should be able to securely ```ssh``` into the web server without a password, 
-  and run ```sudo``` without a password. 
-  This user should also have read/write access the ```DEPLOY_TMP``` and ```DEPLOY_PATH``` directories.
-  - [ ] ```$ envoy run check-user```
-  - [ ] ```$ envoy run init```
-  - [ ] Configure your web server to serve a site from ```current/public``` under your deployment path. If everything is working correctly then you will see a placeholder page at env('APP_URL'). 
-  - [ ] ```$ envoy run deploy```
+  - [ ] Edit the ``.env`` file. Change the ``DEPLOY_*`` variables to suit your needs. 
+  - [ ] Edit the ``.env.production`` file to suit your needs.
+  - [ ] Create the ``envoy`` user on web server. 
+  This user should be able to securely ``ssh`` into the web server without a password, 
+  and run ``sudo`` without a password. 
+  This user should also have read/write access the ``DEPLOY_TMP`` and ``DEPLOY_PATH`` directories.
+  - [ ] ``$ envoy run check-user``
+  - [ ] ``$ envoy run init``
+  - [ ] Configure your web server to serve a site from ``current/public`` under your deployment path. If everything is working correctly then you will see a placeholder page at env('APP_URL'). 
+  - [ ] ``$ envoy run deploy``
   
 ## Demo
 

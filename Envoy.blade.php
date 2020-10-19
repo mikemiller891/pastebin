@@ -247,6 +247,10 @@
     echo "Zap successful"
 @endtask
 
+{{--
+TODO: Check that response to matches this string.
+{"status":"OK","log":{"status":"OK"},"database":{"status":"OK"},"env":{"status":"OK"}}
+--}}
 @task('health-check', ['on' => 'localhost'])
     @if ( ! empty($health_url) )
         HEALTH="$(curl --write-out "%{http_code}" --silent --output /dev/null {{ $health_url }})"
