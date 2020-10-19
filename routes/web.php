@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PasteAdminController;
 use App\Http\Controllers\PasteController;
+use App\Http\Controllers\UserAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +16,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('admin');
+})->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->prefix('/admin')->group( function () {
+    Route::resource('/users', UserAdminController::class);
+    Route::resource('/pastes', PasteAdminController::class);
+});
+
+
+
 Route::get('/', [PasteController::class, 'edit']);
 Route::post('/', [PasteController::class, 'editAction']);
 Route::get('/{paste:key}', [PasteController::class, 'show']);
 Route::post('/{paste:key}', [PasteController::class, 'showAction']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+
+
+
+
+
+
+
+
+#Route::view('/welcome', 'welcome');
