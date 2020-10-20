@@ -112,7 +112,7 @@
     wget -q -O - https://gist.githubusercontent.com/mikemiller891/a4f4bd65a58a9c2091b3b70a8819b31e/raw/78c1094a8b66bb188f78ac0e18aa95c5307b21c9/getcomposer - | bash
     {{ $php }} composer.phar install --no-dev
     npm --non-interactive --no-progress install
-    npm --non-interactive --no-progress run dev
+    npm --non-interactive --no-progress run production
     echo "Build complete"
 @endtask
 
