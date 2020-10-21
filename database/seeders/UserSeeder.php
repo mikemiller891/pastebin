@@ -20,6 +20,8 @@ class UserSeeder extends Seeder
             User::factory()->create([
                 'name' => 'Mike',
                 'email' => 'mike@reslar.com',
+                'email_verified_at' => now(),
+                'is_admin' => true,
             ]);
         }
     }
