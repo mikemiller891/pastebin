@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+    @can('admin')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-r-scorecards />
@@ -34,6 +35,11 @@
                         'key': 'email'
                     },
                     {
+                        'caption': 'Admin',
+                        'key': 'isAdmin',
+                        'type': 'checkbox',
+                    },
+                    {
                         'caption': 'Verified',
                         'key': 'emailVerifiedAt'
                     },
@@ -48,6 +54,7 @@
                         "key": {{ $user->id }},
                         "name": "{!! addslashes($user->name) !!}",
                         "email": "{!! addslashes($user->email) !!}",
+                        "isAdmin": "{{ $user->is_admin }}",
                         "emailVerifiedAt": "{{ $user->email_verified_at }}",
                         "createdAt": "{{ $user->created_at }}",
                     },
@@ -56,5 +63,5 @@
             }
         }
     </script>
-
+    @endcan
 </x-app-layout>

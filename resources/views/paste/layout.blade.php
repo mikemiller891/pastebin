@@ -8,7 +8,12 @@
     <title>Pastebin</title>
     <link href="{{ asset('css/app.css')  }}" rel="stylesheet">
 </head>
-<body class="w-screen h-screen text-white bg-black">
+<body class="w-screen h-screen text-white bg-black relative">
     @yield('content')
+    @can('admin')
+        <div class="absolute top-0 right-0 pt-4 pr-8">
+            <a href="{{ route('dashboard') }}"><x-heroicon-s-cog class="h-6 w-6 opacity-50 hover:opacity-100"/></a>
+        </div>
+    @endcan
 </body>
 </html>
