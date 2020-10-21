@@ -24,9 +24,11 @@ class UserAdminTest extends TestCase
     /**
      * @test
      */
-    public function logged_in_user_can_see_the_pastes_index()
+    public function admin_user_can_see_the_pastes_index()
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'is_admin' => TRUE,
+        ]);
 
         $response = $this->actingAs($user)->get(route('users.index'));
 

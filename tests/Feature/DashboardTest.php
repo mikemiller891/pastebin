@@ -24,9 +24,11 @@ class DashboardTest extends TestCase
     /**
      * @test
      */
-    public function logged_in_user_can_see_the_dashboard()
+    public function admin_user_can_see_the_dashboard()
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'is_admin' => TRUE,
+        ]);
 
         $response = $this->actingAs($user)->get(route('dashboard'));
 
@@ -37,8 +39,3 @@ class DashboardTest extends TestCase
             ->assertSee('Total pastes');
     }
 }
-
-/*
-guest_cannot_see_the_dashboard
-logged_in_user_can_see_the_dashboard
- */
