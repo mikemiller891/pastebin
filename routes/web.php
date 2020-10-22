@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware('auth')->get('/dashboard', function () {
     return view('admin');
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->prefix('/admin')->group( function () {
+Route::middleware(['admin'])->prefix('/dashboard')->group(function () {
     Route::resource('/users', UserAdminController::class);
     Route::resource('/pastes', PasteAdminController::class);
 });
