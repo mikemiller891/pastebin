@@ -26,6 +26,7 @@ It's a pastebin. Carefully hand-crafted using Laravel and Tailwind CSS.
   - Clone And Build
       - [ ] ``$ git clone https://github.com/mikemiller891/pastebin.git pastebin``
       - [ ] ``$ cd pastebin``
+      - [ ] ``$ cp .env.example .env``
       - [ ] ``$ composer install``
       - [ ] ``$ php artisan key:generate``
       - [ ] ``$ npm install``
