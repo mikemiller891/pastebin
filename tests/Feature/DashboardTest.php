@@ -14,7 +14,7 @@ class DashboardTest extends TestCase
     /**
      * @test
      */
-    public function guest_cannot_see_the_dashboard()
+    public function guest_cannot_see_the_dashboard(): void
     {
         $response = $this->get(route('dashboard'));
 
@@ -24,7 +24,25 @@ class DashboardTest extends TestCase
     /**
      * @test
      */
-    public function admin_user_can_see_the_dashboard()
+    public function registered_user_cannot_see_dashboard_data(): void
+    {
+        $user = User::factory()->create([
+            'is_admin' => FALSE,
+        ]);
+
+        $response = $this->actingAs($user)->get(route('dashboard'));
+
+        $response
+            ->assertOk()
+            ->assertSee('Dashboard')
+            ->assertDontSee('Total users')
+            ->assertDontSee('Total pastes');
+    }
+
+    /**
+     * @test
+     */
+    public function admin_user_can_see_the_dashboard(): void
     {
         $user = User::factory()->create([
             'is_admin' => TRUE,

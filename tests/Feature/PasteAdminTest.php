@@ -14,7 +14,7 @@ class PasteAdminTest extends TestCase
     /**
      * @test
      */
-    public function guest_cannot_see_the_pastes_index()
+    public function guest_cannot_see_the_pastes_index(): void
     {
         $response = $this->get(route('pastes.index'));
 
@@ -24,7 +24,21 @@ class PasteAdminTest extends TestCase
     /**
      * @test
      */
-    public function admin_user_can_see_the_pastes_index()
+    public function user_cannot_see_the_pastes_index(): void
+    {
+        $user = User::factory()->create([
+            'is_admin' => FALSE,
+        ]);
+
+        $response = $this->actingAs($user)->get(route('pastes.index'));
+
+        $response->assertNotFound();
+    }
+
+    /**
+     * @test
+     */
+    public function admin_user_can_see_the_pastes_index(): void
     {
         $user = User::factory()->create([
             'is_admin' => TRUE,
