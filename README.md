@@ -62,7 +62,7 @@ It's a pastebin. Carefully hand-crafted using Laravel and Tailwind CSS.
   
 ## Demo
 
-  * https://pastebin.gnomad.dev
+  * http://pastebin.gnomad.xyz
   * http://kbscl3jol77t43azfwu372bdeondzx6fz4t2ydjir43hjnw3vveplbqd.onion
 
 ## License
